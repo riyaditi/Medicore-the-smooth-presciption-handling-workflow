@@ -1,0 +1,25 @@
+/* medicore/static/css/style.css */
+
+.hero-section {
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('static/images/image.png');
+
+    background-size: cover;
+    background-position: center;
+    height: 80vh; /* Takes up 80% of the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.hero-content .logo {
+    max-width: 50px; /* Adjust the size of your logo */
+    height: 50px;
+}
+
+.hero-content .tagline {
+    font-style: italic;
+    font-weight: 300;
+}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2>Submit a New Prescription</h2>
+        <div class="card card-body">
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="medicines" class="form-label">Medicine List</label>
+                    <textarea class="form-control" id="medicines" name="medicines" rows="8" placeholder="Enter one medicine per line, for example:&#10;Paracetamol 500mg - 1 strip&#10;Cough Syrup XYZ - 1 bottle"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Request</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

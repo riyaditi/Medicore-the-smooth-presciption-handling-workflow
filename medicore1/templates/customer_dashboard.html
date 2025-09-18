@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Your Prescription Requests</h2>
+    <a href="{{ url_for('new_prescription') }}" class="btn btn-primary">Submit New Prescription</a>
+</div>
+
+{% if requests %}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Request ID</th>
+            <th scope="col">Date Submitted</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for req in requests %}
+    <tr>
+        <td>#{{ req.id }}</td>
+        <td>{{ req.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+        <td>
+            <span class="badge 
+                {% if req.status == 'Pending' %} bg-warning text-dark 
+                {% elif req.status == 'Awaiting Reply' %} bg-info text-dark
+                {% elif req.status == 'Available' %} bg-success
+                {% else %} bg-danger {% endif %}">
+                {{ req.status }}
+            </span>
+        </td>
+        <td>
+            <a href="{{ url_for('request_details', request_id=req.id) }}" class="btn btn-sm btn-outline-primary">View Details</a>
+            
+            <form method="POST" action="{{ url_for('delete_request', request_id=req.id) }}" style="display: inline;">
+                <button type="submit" class="btn btn-sm btn-outline-danger" 
+                        onclick="return confirm('Are you sure you want to permanently delete this request?');">
+                    Delete
+                </button>
+            </form>
+            </td>
+            <td>
+                <a href="{{ url_for('request_details', request_id=req.id) }}"
+                    class="btn btn-sm btn-outline-primary">View Details</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-secondary" role="alert">
+    You have not submitted any prescription requests yet.
+</div>
+{% endif %}
+{% endblock %}

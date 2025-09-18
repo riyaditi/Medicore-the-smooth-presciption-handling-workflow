@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="hero-section text-center text-white">
+    <div class="hero-content">
+        <img src="{{ url_for('static', filename='images/image.png') }}" alt="Medicore Logo" class="logo mb-4">
+        
+        <h1 class="display-4">Medicore</h1>
+        <p class="lead tagline">The Smooth Prescription Handling Workflow</p>
+        <hr class="my-4">
+        <p>Streamlining communication between you and your pharmacist.</p>
+        <a class="btn btn-light btn-lg" href="{{ url_for('login') }}" role="button">Get Started</a>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-12">
+            <h2>Project Members</h2>
+            <hr>
+        </div>
+        <div class="col-md-4">
+            <h5>Member 1 Name</h5>
+            <p>Roll Number</p>
+        </div>
+        <div class="col-md-4">
+            <h5>Member 2 Name</h5>
+            <p>Roll Number</p>
+        </div>
+        <div class="col-md-4">
+            <h5>Member 3 Name</h5>
+            <p>Roll Number</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
